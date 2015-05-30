@@ -38,8 +38,9 @@ public class Mc_Main  extends JavaPlugin{
 
         plugin = this;
         getLogger().info(Message.NC_PREFIX+"enabled");
+        getCommand("day").setExecutor(new DayCommand());
         getServer().getPluginManager().registerEvents(new MC_Listen(), this);
-
+        getServer().getPluginManager().registerEvents(new Fishing(), this);
         getConfig().options().copyDefaults(true);
         saveConfig();
     }
