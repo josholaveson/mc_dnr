@@ -17,6 +17,8 @@ public class MC_Listen implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
         Player joiner = event.getPlayer();
+        gc().getConfig().set(joiner.getDisplayName()+"fishing", false);
+        gc().saveConfig();
 
         if(gc().getConfig().getBoolean(joiner.getDisplayName()+"fishing" , true)) {
 
