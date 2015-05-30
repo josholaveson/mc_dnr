@@ -19,6 +19,7 @@ public class MC_Listen implements Listener {
         Player joiner = event.getPlayer();
         gc().getConfig().set(joiner.getDisplayName()+"fishing", false);
         gc().saveConfig();
+        gc().getLogger().info(Message.M_TEXT+joiner.getDisplayName()+" config updated");
 
         if(gc().getConfig().getBoolean(joiner.getDisplayName()+"fishing" , true)) {
 
@@ -26,8 +27,9 @@ public class MC_Listen implements Listener {
             gc().saveConfig();
 
         }else {
-            gc().getConfig().addDefault(joiner.getDisplayName()+"fishing:", false);
+            gc().getConfig().set(joiner.getDisplayName()+"fishing", false);
             gc().saveConfig();
+
 
         }
     }
